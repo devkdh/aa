@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import com.bike.dao.BikeDao;
 import com.bike.vo.BikeVo;
 import com.google.gson.JsonElement;
@@ -73,24 +74,27 @@ public class BikeServlet extends HttpServlet {
 			int res = dao.delete();
 			if(res>0) {
 				System.out.println("삭제성공");
-			} else {
-				System.out.println("삭제실패");
+			}else {
+				System.out.println("삭제 실패");
 			}
+			
 			String obj = request.getParameter("obj");
-			//system.out.println
+			//System.out.println(obj);
 			
 			JsonParser paser = new JsonParser();
 			JsonElement element = paser.parse(obj);
 			
 			List<BikeVo> vos = new ArrayList<>();
 			
-			for(int i=0;i<element.getAsJsonObject().get("DATA").getAsJsonArray().size();i++) {
-				System.out.println(element.getAsJsonObject().get("DATA").getAsJsonArray().get(i));
-				
+			for(int i=0; i<element.getAsJsonObject().get("DATA").getAsJsonArray().size(); i++) {
+//				System.out.println(element.getAsJsonObject().get("DATA").getAsJsonArray().get(i));
+				System.out.println(element.getAsJsonObject().get("DATA").getAsJsonArray().get(i).getAsJsonObject().get("new_addr") );
 			}
+			
+			
+			
+			
 		}
-	
-	
 		
 		
 		
