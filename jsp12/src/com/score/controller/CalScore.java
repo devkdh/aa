@@ -32,7 +32,7 @@ public class CalScore extends HttpServlet {
 		double avg = (double)sum/3;
 		
 		JSONObject obj = new JSONObject();
-		obj.put("name", name);
+		obj.put("na1111me", name);
 		obj.put("sum", sum);
 		obj.put("avg", avg);
 		//{ "name":value, "sum":value, "avg":value }
